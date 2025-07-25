@@ -20,14 +20,18 @@ Welcome to your personal RHCSA (Red Hat Certified System Administrator) command 
 
 ```
 RHCSA/
-├── README.md           # This file
-├── linux-basics.md     # Basic Linux commands
-├── file-systems.md     # File system management
-├── users-groups.md     # User and group management
-├── networking.md       # Network configuration
-├── storage.md          # Storage management (LVM, partitions)
-├── services.md         # System services (systemd)
-└── security.md         # Security and permissions
+├── README.md              # This file
+├── linux-basics.md        # Basic Linux commands and file operations
+├── users-groups.md        # User and group management
+├── file-systems.md        # File system management and mounting
+├── storage.md             # Advanced storage (LVM, RAID, encryption)
+├── networking.md          # Network configuration and troubleshooting
+├── services.md            # System services and systemd management
+├── security.md            # SELinux, permissions, and security
+├── package-management.md  # DNF/YUM package management
+├── boot-process.md        # Boot process and kernel management
+├── scheduling.md          # Cron jobs and systemd timers
+└── containers.md          # Container management with Podman
 ```
 
 ## How to Use
