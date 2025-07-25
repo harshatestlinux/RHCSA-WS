@@ -21,17 +21,18 @@ Welcome to your personal RHCSA (Red Hat Certified System Administrator) command 
 ```
 RHCSA/
 ├── README.md              # This file
-├── linux-basics.md        # Basic Linux commands and file operations
-├── users-groups.md        # User and group management
-├── file-systems.md        # File system management and mounting
-├── storage.md             # Advanced storage (LVM, RAID, encryption)
-├── networking.md          # Network configuration and troubleshooting
-├── services.md            # System services and systemd management
-├── security.md            # SELinux, permissions, and security
-├── package-management.md  # DNF/YUM package management
-├── boot-process.md        # Boot process and kernel management
-├── scheduling.md          # Cron jobs and systemd timers
-├── containers.md          # Container management with Podman
+├── objectives/            # RHCSA topic command references
+│   ├── linux-basics.md        # Basic Linux commands and file operations
+│   ├── users-groups.md        # User and group management
+│   ├── file-systems.md        # File system management and mounting
+│   ├── storage.md             # Advanced storage (LVM, RAID, encryption)
+│   ├── networking.md          # Network configuration and troubleshooting
+│   ├── services.md            # System services and systemd management
+│   ├── security.md            # SELinux, permissions, and security
+│   ├── package-management.md  # DNF/YUM package management
+│   ├── boot-process.md        # Boot process and kernel management
+│   ├── scheduling.md          # Cron jobs and systemd timers
+│   └── containers.md          # Container management with Podman
 └── study-materials/       # 45-day study plan and preparation materials
     ├── 45-day-study-plan.md   # Complete daily study schedule
     ├── exam-objectives.md     # Official RHCSA exam objectives checklist
@@ -41,10 +42,23 @@ RHCSA/
 
 ## How to Use
 
-- Each `.md` file contains commands and notes for a specific topic.
-- Add new commands under relevant sections.
-- Include brief descriptions or examples for clarity.
-- Commit and push your changes regularly.
+### 📁 **Objectives Directory** (`objectives/`)
+- Contains command reference files for each RHCSA topic
+- Each `.md` file focuses on a specific exam objective area
+- Add new commands under relevant sections as you learn them
+- Include brief descriptions or examples for clarity
+- Perfect for quick command lookups during study and practice
+
+### 📚 **Study Materials Directory** (`study-materials/`)
+- Contains your complete 45-day RHCSA preparation plan
+- Structured learning materials designed for exam success
+- Follow the daily schedule and complete all practice labs
+- Use as your primary study guide and progress tracker
+
+### 🔄 **Regular Maintenance**
+- Commit and push your changes regularly
+- Update command references as you discover new techniques
+- Track your progress through the study plan
 
 ## Study Materials for RHCSA Exam
 
@@ -57,11 +71,11 @@ The `study-materials/` directory contains a comprehensive 45-day study plan desi
 - **quick-reference.md**: Essential commands cheat sheet for quick review
 
 ### 🎯 How to Follow the Study Plan
-1. **Start with the 45-day study plan** - Follow the daily schedule religiously
-2. **Use topic files as references** - Refer to individual topic `.md` files during study
-3. **Complete practice labs** - Hands-on practice is crucial for exam success
-4. **Review objectives regularly** - Check off completed objectives to track progress
-5. **Use quick reference for review** - Perfect for last-minute exam preparation
+1. **Start with the 45-day study plan** - Follow `study-materials/45-day-study-plan.md` daily schedule religiously
+2. **Use objectives as references** - Refer to `objectives/` topic files during study sessions
+3. **Complete practice labs** - Work through `study-materials/practice-labs.md` exercises
+4. **Review objectives regularly** - Check off completed items in `study-materials/exam-objectives.md`
+5. **Use quick reference for review** - `study-materials/quick-reference.md` for last-minute preparation
 
 ### ⏰ Daily Study Routine (2 hours)
 - **Hour 1**: Theory and command practice from topic files
