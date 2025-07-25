@@ -34,10 +34,13 @@ RHCSA/
 │   ├── scheduling.md          # Cron jobs and systemd timers
 │   └── containers.md          # Container management with Podman
 └── study-materials/       # 45-day study plan and preparation materials
-    ├── 45-day-study-plan.md   # Complete daily study schedule
-    ├── exam-objectives.md     # Official RHCSA exam objectives checklist
-    ├── practice-labs.md       # Hands-on lab exercises for all topics
-    └── quick-reference.md     # Essential commands cheat sheet
+    ├── 45-day-study-plan.md       # Complete daily study schedule
+    ├── exam-objectives.md         # Official RHCSA exam objectives checklist
+    ├── practice-labs.md           # Hands-on lab exercises for all topics
+    ├── practice-labs-answers.md   # Answer sheet for practice labs
+    ├── practice-labs-set2.md      # Additional advanced practice labs
+    ├── practice-labs-set2-answers.md # Answer sheet for advanced labs
+    └── quick-reference.md         # Essential commands cheat sheet
 ```
 
 ## How to Use
@@ -68,6 +71,9 @@ The `study-materials/` directory contains a comprehensive 45-day study plan desi
 - **45-day-study-plan.md**: Complete daily schedule (2 hours/day) with structured learning path
 - **exam-objectives.md**: Official Red Hat RHCSA exam objectives checklist
 - **practice-labs.md**: Hands-on lab exercises organized by week and topic
+- **practice-labs-answers.md**: Complete answer sheet for all practice labs
+- **practice-labs-set2.md**: Additional advanced practice labs for extra preparation
+- **practice-labs-set2-answers.md**: Answer sheet for the second set of practice labs
 - **quick-reference.md**: Essential commands cheat sheet for quick review
 
 ### 🎯 How to Follow the Study Plan
