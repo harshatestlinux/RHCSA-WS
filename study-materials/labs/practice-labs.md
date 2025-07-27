@@ -1,5 +1,10 @@
 # RHCSA Practice Labs - Hands-on Exercises
 
+## 📚 Study Resources
+- **[Red Hat Certification Study Guide](./preview-9780138096151_A46998912.pdf)** - Comprehensive RHCSA exam preparation material
+
+---
+
 ## Lab Environment Setup
 
 ### Required VMs
