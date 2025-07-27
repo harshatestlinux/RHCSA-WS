@@ -4,9 +4,58 @@
 ## 🎯 **Source Information**
 - **PDF:** RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition
 - **Author:** Asghar Ghori (AG)  
-- **Pages:** 1546 pages
-- **Chapters:** 22 chapters + 4 sample exams
-- **Focus:** Comprehensive RHCSA exam preparation with hands-on exercises
+- **Pages:** 1546 pages (comprehensive coverage)
+- **Chapters:** 22 chapters + 4 sample exams (Appendices A-D)
+- **Focus:** Performance-based RHCSA exam preparation with extensive hands-on exercises
+- **Target:** RHCSA EX200 certification exam
+- **Approach:** Theoretical concepts + practical implementation + real-world scenarios
+
+## 📋 **Complete Chapter Structure**
+
+**Part I: Foundation**
+1. Building a Lab Environment
+2. Initial Interaction with the System  
+3. File and Directory Operations
+4. File Permissions
+5. User Account Management
+6. Group Account Management and sudo
+
+**Part II: System Operations**
+7. The Bash Shell
+8. Processes and Job Scheduling
+9. Basic Package Management
+10. Advanced Package Management
+11. Boot Process, GRUB2, and the Kernel
+12. System Initialization, Message Logging, and System Tuning
+
+**Part III: Storage and File Systems**
+13. Storage Management
+14. Local File Systems and Swap
+
+**Part IV: Networking and Services**
+15. Networking, Network Devices, and Network Connections
+16. Network File Systems
+17. Time Services
+18. The Secure Shell Service
+
+**Part V: Security and Advanced Topics**
+19. The Linux Firewall
+20. Security Enhanced Linux
+21. Shell Scripting
+22. Containers
+
+**Appendices:**
+- Appendix A: Sample RHCSA Exam 1
+- Appendix B: Sample RHCSA Exam 2  
+- Appendix C: Sample RHCSA Exam 3
+- Appendix D: Sample RHCSA Exam 4
+
+## 🎯 **Study Approach**
+- **Time Duration:** 3 hours per exam simulation
+- **Passing Score:** 70% (210 out of 300 points)
+- **Format:** Performance-based tasks on RHEL 9 virtual machines
+- **Practice:** Hands-on exercises in each chapter
+- **Verification:** Command validation and result checking
 
 ---
 

@@ -7,54 +7,57 @@
 
 #### **PDF #1: Red Hat Official Cert Guide**
 
-#### **1. [labs/AG-red-hat-cert-guide-labs-PDF.md](./labs/AG-red-hat-cert-guide-labs-PDF.md)** ⭐ **MAIN PDF LABS**
+#### **1. [labs/red-hat-cert-guide-labs-PDF.md](./labs/red-hat-cert-guide-labs-PDF.md)** ⭐ **RED HAT OFFICIAL LABS**
+- **Source:** Red Hat RHCSA 9 Cert Guide (Official Red Hat Guide) - 28 chapters covering all RHCSA exam objectives
+- **Content:** Official Red Hat curriculum with structured learning path
+- **Structure:** Comprehensive coverage of all RHCSA exam topics with official methodology
+
+#### **2. [answers/red-hat-cert-guide-answers-PDF.md](./answers/red-hat-cert-guide-answers-PDF.md)** ⭐ **RED HAT OFFICIAL ANSWERS**
+- **Source:** Red Hat RHCSA 9 Cert Guide (Official Red Hat Guide)
+- **Content:** Step-by-step solutions for all Red Hat official labs
+- **Format:** Command explanations, expected outputs, verification steps
+
+---
+
+#### **PDF #2: Asghar Ghori (AG) Guide**
+
+#### **3. [labs/AG-rhcsa9-labs-PDF.md](./labs/AG-rhcsa9-labs-PDF.md)** ⭐ **AG COMPREHENSIVE LABS**
 - **Source:** RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition by Asghar Ghori (AG) - 1546 pages with 22 chapters covering all RHCSA exam objectives
 - **Content:** Comprehensive coverage with exercises, DIY labs, and 4 sample exams in appendices
 - **Structure:** Chapters cover: Lab setup, Essential tools, File management, Permissions, Users/Groups, Bash shell, Processes, Package management, Boot process, System initialization, Storage management, File systems, Networking, Remote file systems, Time services, SSH, Firewall, SELinux, Shell scripting, and Containers
 - **Page References:** Includes specific page numbers from your AG PDF
 
-**Chapter Coverage from Your AG PDF:**
+**AG Chapter Coverage (22 Chapters + 4 Sample Exams):**
 ```
-✅ Chapter 1: Lab setup (Page 1)
-✅ Chapter 2: Essential tools (Page 51)
-✅ Chapter 3: File management (Page 77)
-✅ Chapter 4: Permissions (Page 98)
-✅ Chapter 5: Users/Groups (Page 119)
-✅ Chapter 6: Bash shell (Page 141-142)
-✅ Chapter 7: Processes (Page 164)
-✅ Chapter 8: Package management (Page 193)
-✅ Chapter 9: Boot process (Page 228)
-✅ Chapter 10: System initialization (Page 231+)
-✅ Chapter 11: Storage management (Page 264)
-✅ Chapter 12: File systems (Page 297)
-✅ Chapter 13: Networking (Page 330)
-✅ Chapter 14: Remote file systems (Page 363)
-✅ Chapter 15: Time services (Page 396)
-✅ Chapter 16: SSH (Page 429)
-✅ Chapter 17: Firewall (Page 462)
-✅ Chapter 18: SELinux (Page 495)
-✅ Chapter 19: Shell scripting (Page 528)
-✅ Chapter 20: Containers (Page 561)
-✅ Chapter 21: Sample Exam 1 (Page 594)
-✅ Chapter 22: Sample Exam 2 (Page 627)
-✅ Chapter 13: Configuring Logging
-✅ Chapter 14-15: Storage Management
-✅ Chapter 16: Basic Kernel Management
-✅ Chapter 17: Managing and Understanding the Boot Procedure
-✅ Chapter 18: Essential Troubleshooting Skills
-✅ Chapter 19: Automation with Bash Shell Scripting
-✅ Chapter 20: Configuring SSH
-✅ Chapter 21: Managing Apache HTTP Services
-✅ Chapter 22: Managing SELinux
-✅ Chapter 23: Configuring a Firewall
-✅ Chapter 24: Accessing Network Storage
-✅ Chapter 25: Configuring Time Services
-✅ Chapter 26: Managing Containers
-✅ Chapter 27: Final Preparation
-✅ Chapter 28: Theoretical Pre-Assessment Exam
+✅ Chapter 1: Building a Lab Environment
+✅ Chapter 2: Initial Interaction with the System
+✅ Chapter 3: File and Directory Operations
+✅ Chapter 4: File Permissions
+✅ Chapter 5: User Account Management
+✅ Chapter 6: Group Account Management and sudo
+✅ Chapter 7: The Bash Shell
+✅ Chapter 8: Processes and Job Scheduling
+✅ Chapter 9: Basic Package Management
+✅ Chapter 10: Advanced Package Management
+✅ Chapter 11: Boot Process, GRUB2, and the Kernel
+✅ Chapter 12: System Initialization, Message Logging, and System Tuning
+✅ Chapter 13: Storage Management
+✅ Chapter 14: Local File Systems and Swap
+✅ Chapter 15: Networking, Network Devices, and Network Connections
+✅ Chapter 16: Network File Systems
+✅ Chapter 17: Time Services
+✅ Chapter 18: The Secure Shell Service
+✅ Chapter 19: The Linux Firewall
+✅ Chapter 20: Security Enhanced Linux
+✅ Chapter 21: Shell Scripting
+✅ Chapter 22: Containers
+✅ Appendix A: Sample RHCSA Exam 1
+✅ Appendix B: Sample RHCSA Exam 2
+✅ Appendix C: Sample RHCSA Exam 3
+✅ Appendix D: Sample RHCSA Exam 4
 ```
 
-#### **2. [answers/lab-answers-and-solutions-PDF.md](./answers/lab-answers-and-solutions-PDF.md)** ⭐ **MAIN PDF ANSWERS**
+#### **4. [answers/AG-rhcsa9-answers-PDF.md](./answers/AG-rhcsa9-answers-PDF.md)** ⭐ **AG COMPREHENSIVE ANSWERS**
 - **Source:** Solutions for your PDF-based labs
 - **Content:** Detailed explanations for every command from PDF labs
 - **Features:** Command breakdowns, expected outputs, troubleshooting
