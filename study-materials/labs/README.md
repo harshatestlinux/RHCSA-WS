@@ -3,8 +3,8 @@
 ## Lab Files in Order of Importance:
 
 ### 🌟 **PRIMARY LAB (Start Here)**
-**[Red Hat Cert Guide Labs](./red-hat-cert-guide-labs.md)**
-- Based on official Red Hat RHCSA 9 Cert Guide
+**[Red Hat Cert Guide Labs PDF](./red-hat-cert-guide-labs-PDF.md)**
+- Based on official Red Hat RHCSA 9 Cert Guide PDF
 - All 28 chapters covered
 - Real exam scenarios
 - **Use this as your main study material**

@@ -27,10 +27,11 @@ study-materials/
 
 ### **Step 2: Practice with Labs**
 📖 **Primary Lab Materials:**
-- **[Red Hat Cert Guide Labs](./labs/red-hat-cert-guide-labs.md)** - ⭐ **MAIN LABS** ⭐
-  - Based on official Red Hat RHCSA 9 Cert Guide
-  - All 28 chapters covered
-  - Real exam scenarios
+- **[Red Hat Cert Guide Labs PDF](./labs/red-hat-cert-guide-labs-PDF.md)** - ⭐ **MAIN LABS** ⭐
+  - 🎯 **BASED ON YOUR PDF** - Red Hat RHCSA 9 Cert Guide
+  - All 28 chapters from your PDF covered
+  - Includes specific page references from your PDF
+  - Real exam scenarios from official guide
 
 - **[Comprehensive Practice Labs](./labs/comprehensive-practice-labs.md)** - **SUPPLEMENTARY**
   - Additional practice scenarios

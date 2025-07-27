@@ -3,8 +3,8 @@
 ## Answer Files in Order of Importance:
 
 ### 🌟 **PRIMARY ANSWERS (Start Here)**
-**[Lab Answers & Solutions](./lab-answers-and-solutions.md)**
-- Complete solutions for Red Hat Cert Guide Labs
+**[Lab Answers & Solutions PDF](./lab-answers-and-solutions-PDF.md)**
+- Complete solutions for Red Hat Cert Guide Labs PDF
 - Detailed command explanations
 - Expected outputs and verification steps
 - Troubleshooting guides
