@@ -1,5 +1,5 @@
 # 📖 AG Materials Summary
-*Quick reference for Asghar Ghori (AG) PDF materials*
+*Quick reference for AG PDF materials*
 
 ## 🎯 **Your AG PDF Materials**
 

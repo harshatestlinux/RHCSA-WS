@@ -8,7 +8,7 @@ This directory contains detailed solutions for all RHCSA practice labs.
 
 ### **Primary Study Materials** ⭐
 - **[red-hat-cert-guide-answers-PDF.md](./red-hat-cert-guide-answers-PDF.md)** - Solutions for Red Hat official guide labs (28 chapters)
-- **[AG-rhcsa9-answers-PDF.md](./AG-rhcsa9-answers-PDF.md)** - Solutions for Asghar Ghori comprehensive guide labs (22 chapters + 4 sample exams)
+- **[AG-rhcsa9-answers-PDF.md](./AG-rhcsa9-answers-PDF.md)** - Solutions for comprehensive guide labs (22 chapters + 4 sample exams)
 - **[lab-answers-and-solutions-PDF.md](./lab-answers-and-solutions-PDF.md)** - Additional PDF-based solutions
 
 ## 📋 **Usage Instructions**

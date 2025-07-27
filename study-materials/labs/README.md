@@ -8,7 +8,7 @@ This directory contains hands-on practice labs for RHCSA preparation.
 
 ### **Primary Study Materials** ⭐
 - **[red-hat-cert-guide-labs-PDF.md](./red-hat-cert-guide-labs-PDF.md)** - Labs from Red Hat official guide (28 chapters)
-- **[AG-rhcsa9-labs-PDF.md](./AG-rhcsa9-labs-PDF.md)** - Labs from Asghar Ghori comprehensive guide (22 chapters + 4 sample exams)
+- **[AG-rhcsa9-labs-PDF.md](./AG-rhcsa9-labs-PDF.md)** - Labs from comprehensive guide (22 chapters + 4 sample exams)
 
 ## 📋 **Usage Instructions**
 

@@ -19,10 +19,10 @@
 
 ---
 
-#### **PDF #2: Asghar Ghori (AG) Guide**
+#### **PDF #2: AG Guide**
 
 #### **3. [labs/AG-rhcsa9-labs-PDF.md](./labs/AG-rhcsa9-labs-PDF.md)** ⭐ **AG COMPREHENSIVE LABS**
-- **Source:** RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition by Asghar Ghori (AG) - 1546 pages with 22 chapters covering all RHCSA exam objectives
+- **Source:** RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition - 1546 pages with 22 chapters covering all RHCSA exam objectives
 - **Content:** Comprehensive coverage with exercises, DIY labs, and 4 sample exams in appendices
 - **Structure:** Chapters cover: Lab setup, Essential tools, File management, Permissions, Users/Groups, Bash shell, Processes, Package management, Boot process, System initialization, Storage management, File systems, Networking, Remote file systems, Time services, SSH, Firewall, SELinux, Shell scripting, and Containers
 - **Page References:** Includes specific page numbers from your AG PDF

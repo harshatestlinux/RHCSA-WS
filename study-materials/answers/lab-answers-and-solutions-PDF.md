@@ -1,9 +1,9 @@
 # RHCSA Lab Answers and Solutions
 *Answer Key for Red Hat RHCSA 9 Cert Guide Practice Labs*
 
-## 📚 Reference Materials
-- **[Red Hat RHCSA 9 Cert Guide PDF](../resources/pdfs/preview-9780138096151_A46998912.pdf)**
-- **[Practice Labs](./red-hat-cert-guide-labs.md)**
+## 📚 Study Resources
+- **Red Hat RHCSA 9 Cert Guide** - Official certification guide (content extracted)
+- **Lab Environment:** 2 RHEL 9 VMs following book specifications
 
 ---
 

@@ -1,9 +1,9 @@
 # ✅ AG RHCSA 9 Answers - Complete Guide (PDF)
-*Based on "RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition" by Asghar Ghori (AG)*
+*Based on "RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition"*
 
 ## 🎯 **Source Information**
 - **PDF:** RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition
-- **Author:** Asghar Ghori (AG)  
+- **Author:** [Content extracted from comprehensive guide]
 - **Pages:** 1546 pages (comprehensive coverage)
 - **Chapters:** 22 chapters + 4 sample exams (Appendices A-D)
 - **Focus:** Performance-based RHCSA exam preparation with extensive hands-on exercises

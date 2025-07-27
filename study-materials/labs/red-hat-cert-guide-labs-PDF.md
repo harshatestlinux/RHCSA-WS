@@ -2,7 +2,7 @@
 *Based on Official Red Hat RHCSA 9 Cert Guide: EX200*
 
 ## 📚 Study Resources
-- **[Red Hat RHCSA 9 Cert Guide PDF](../resources/pdfs/preview-9780138096151_A46998912.pdf)** - Official certification guide
+- **Red Hat RHCSA 9 Cert Guide** - Official certification guide (content extracted)
 - **Lab Environment:** 2 RHEL 9 VMs following book specifications
 
 ---
@@ -171,16 +171,32 @@ env | grep PATH
 
 ---
 
-### Chapter 4 Lab: Working with Text Files
+### Chapter 4 Lab: Working with Text Files (Enhanced)
 **Reference:** Chapter 4 - Lab 4.1 (Page 98)
 
-**Objective:** Master text processing tools and regular expressions
+**Objective:** Master text processing tools and regular expressions with deep understanding
+**Time:** 75 minutes (extended for comprehensive practice)
 
-**Tasks:**
+**Learning Goals:**
+- Understand text processing pipeline concepts
+- Master essential text analysis tools
+- Learn regular expression patterns and matching
+- Practice log file analysis techniques
+- Understand field separation and data extraction
+
+**Background Knowledge:**
+- **Stream Processing:** Text tools process data line by line
+- **Field Separators:** Characters that divide data into columns (space, tab, comma)
+- **Regular Expressions:** Pattern matching language for text search
+- **Pipes:** Connect output of one command to input of another
+- **Standard Streams:** stdin (input), stdout (output), stderr (errors)
+
+**Tasks with Detailed Explanations:**
+
 1. **Text File Analysis Tools**
    ```bash
    # Create sample log file for practice
-   cat > ~/lab3/sample.log << 'EOF'
+   cat > ~/lab4/sample.log << 'EOF'
    2024-01-15 10:30:15 INFO User alice logged in
    2024-01-15 10:31:22 ERROR Failed login attempt for user bob
    2024-01-15 10:32:45 INFO User charlie logged in
@@ -189,13 +205,158 @@ env | grep PATH
    2024-01-15 10:35:30 INFO User alice logged out
    EOF
    
-   # Practice with text tools
-   head -3 ~/lab3/sample.log
-   tail -2 ~/lab3/sample.log
-   wc -l ~/lab3/sample.log
-   cut -d' ' -f1,2 ~/lab3/sample.log
-   sort ~/lab3/sample.log
+   # head - Display first lines of file
+   head -3 ~/lab4/sample.log
+   # What happens:
+   # - Shows first 3 lines of the file
+   # - Useful for quickly seeing file structure
+   # - Default is 10 lines if no number specified
+   # - Essential for examining large log files
+   
+   # tail - Display last lines of file
+   tail -2 ~/lab4/sample.log
+   # What happens:
+   # - Shows last 2 lines of the file
+   # - Useful for seeing recent log entries
+   # - tail -f follows file as it grows (live monitoring)
+   # - Critical for real-time log analysis
+   
+   # wc - Word, line, character, and byte counts
+   wc -l ~/lab4/sample.log
+   # What happens:
+   # - Counts number of lines in file
+   # - -l: lines, -w: words, -c: characters, -m: characters
+   # - Useful for measuring file size and content volume
+   
+   wc -lwc ~/lab4/sample.log
+   # Shows: lines, words, characters in that order
+   
+   # cut - Extract specific fields/columns
+   cut -d' ' -f1,2 ~/lab4/sample.log
+   # What happens:
+   # - -d' ': uses space as field delimiter
+   # - -f1,2: extracts fields 1 and 2 (date and time)
+   # - Creates columnar output from structured text
+   # - Essential for parsing log files and CSV data
+   
+   cut -d' ' -f3 ~/lab4/sample.log
+   # Extracts just the log level (INFO, ERROR, WARNING)
+   
+   # sort - Sort lines alphabetically or numerically
+   sort ~/lab4/sample.log
+   # What happens:
+   # - Sorts lines alphabetically by default
+   # - Useful for organizing data and finding duplicates
+   # - Can sort by specific fields with -k option
+   
+   sort -k3 ~/lab4/sample.log
+   # Sorts by third field (log level)
+   
+   # uniq - Remove or report duplicate lines
+   cut -d' ' -f3 ~/lab4/sample.log | sort | uniq -c
+   # What happens:
+   # - Extracts log levels, sorts them, counts occurrences
+   # - -c: shows count of each unique line
+   # - Must sort before uniq for proper duplicate detection
    ```
+
+2. **Advanced Text Processing**
+   ```bash
+   # awk - Pattern scanning and processing
+   awk '{print $1, $2, $3}' ~/lab4/sample.log
+   # What happens:
+   # - $1, $2, $3: first, second, third fields
+   # - Automatically splits on whitespace
+   # - More powerful than cut for complex field processing
+   
+   awk '$3 == "ERROR" {print $0}' ~/lab4/sample.log
+   # What happens:
+   # - Prints entire line ($0) where third field equals "ERROR"
+   # - Conditional processing based on field values
+   # - More flexible than grep for structured data
+   
+   # sed - Stream editor for filtering and transforming text
+   sed 's/ERROR/CRITICAL/g' ~/lab4/sample.log
+   # What happens:
+   # - s/old/new/g: substitute 'ERROR' with 'CRITICAL' globally
+   # - g flag: replace all occurrences on each line
+   # - Powerful for text transformation and cleanup
+   
+   sed -n '2,4p' ~/lab4/sample.log
+   # What happens:
+   # - -n: suppress default output
+   # - 2,4p: print lines 2 through 4
+   # - Alternative to head/tail for specific line ranges
+   ```
+
+3. **Text Processing Pipelines**
+   ```bash
+   # Complex pipeline example: Analyze log levels
+   cat ~/lab4/sample.log | cut -d' ' -f3 | sort | uniq -c | sort -nr
+   # What happens step by step:
+   # 1. cat: output file contents
+   # 2. cut -d' ' -f3: extract log level field
+   # 3. sort: sort log levels alphabetically
+   # 4. uniq -c: count unique occurrences
+   # 5. sort -nr: sort by count (numeric, reverse)
+   # Result: log levels ranked by frequency
+   
+   # Find users and their activities
+   grep "User" ~/lab4/sample.log | awk '{print $5, $6, $7, $8}' | sort
+   # What happens:
+   # 1. grep "User": find lines containing "User"
+   # 2. awk: extract user and action fields
+   # 3. sort: organize results alphabetically
+   # Result: sorted list of user activities
+   
+   # Count error types
+   grep "ERROR" ~/lab4/sample.log | cut -d' ' -f4- | sort | uniq -c
+   # What happens:
+   # 1. grep "ERROR": find error lines
+   # 2. cut -d' ' -f4-: extract from field 4 to end (error message)
+   # 3. sort | uniq -c: count unique error messages
+   # Result: frequency count of different errors
+   ```
+
+4. **Practical Log Analysis Scenarios**
+   ```bash
+   # Create more realistic log file
+   cat > ~/lab4/access.log << 'EOF'
+   192.168.1.100 - - [15/Jan/2024:10:30:15 +0000] "GET /index.html HTTP/1.1" 200 1234
+   192.168.1.101 - - [15/Jan/2024:10:31:22 +0000] "POST /login HTTP/1.1" 401 567
+   192.168.1.100 - - [15/Jan/2024:10:32:45 +0000] "GET /dashboard HTTP/1.1" 200 2345
+   192.168.1.102 - - [15/Jan/2024:10:33:10 +0000] "GET /api/data HTTP/1.1" 500 123
+   192.168.1.101 - - [15/Jan/2024:10:34:55 +0000] "POST /login HTTP/1.1" 200 890
+   EOF
+   
+   # Extract IP addresses
+   awk '{print $1}' ~/lab4/access.log | sort | uniq -c | sort -nr
+   # Result: IP addresses sorted by request frequency
+   
+   # Find failed requests (4xx, 5xx status codes)
+   awk '$9 >= 400 {print $1, $7, $9}' ~/lab4/access.log
+   # Result: IP, URL, and status code for failed requests
+   
+   # Extract request methods
+   awk '{print $6}' ~/lab4/access.log | sed 's/"//g' | sort | uniq -c
+   # Result: count of GET, POST, etc. requests
+   ```
+
+**Verification Commands:**
+```bash
+# Test your understanding
+echo "Test your skills with these commands:"
+echo "1. Count total lines in /etc/passwd"
+echo "2. Extract usernames from /etc/passwd"
+echo "3. Find users with bash shell"
+echo "4. Count different shell types"
+
+# Solutions:
+wc -l /etc/passwd
+cut -d: -f1 /etc/passwd
+grep "/bin/bash" /etc/passwd | cut -d: -f1
+cut -d: -f7 /etc/passwd | sort | uniq -c
+```
 
 2. **Regular Expressions with grep**
    ```bash
