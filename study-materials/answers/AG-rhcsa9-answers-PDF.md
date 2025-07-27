@@ -802,4 +802,993 @@ alias | grep ll
 declare -f mkcd
 ```
 
-This covers the first 7 chapters with detailed explanations. The answers provide comprehensive solutions with command explanations, expected results, and verification steps. Would you like me to continue with the remaining chapters (8-22)?
+---
+
+## 📚 **Chapter 8: Linux Processes and Job Scheduling - ANSWERS**
+
+### **Lab 8.1: Process Management and Scheduling - SOLUTION**
+
+**Process Monitoring Commands:**
+
+1. **Process Viewing:**
+```bash
+# ps - Process status
+ps aux
+# a: all users, u: user format, x: processes without terminal
+# Shows: USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
+
+ps -ef
+# -e: all processes, -f: full format
+# Shows: UID PID PPID C STIME TTY TIME CMD
+
+# top - Real-time process viewer
+top
+# Press 'q' to quit, 'k' to kill process, 'r' to renice
+# Shows CPU usage, memory usage, load average
+
+# htop - Enhanced top (if available)
+htop
+# More user-friendly interface with colors
+
+# Process search
+pgrep sshd
+# Finds process ID by name
+pidof sshd
+# Alternative to pgrep
+```
+
+2. **Process Control:**
+```bash
+# nice - Start process with priority
+nice -n 10 sleep 100 &
+# -n 10: niceness value (lower = higher priority)
+# Range: -20 (highest) to +19 (lowest)
+# & : run in background
+
+# renice - Change running process priority
+renice 5 1234
+# Changes process 1234 to niceness 5
+renice -5 -u john
+# Changes all john's processes to niceness -5
+
+# Verify priority changes
+ps -eo pid,ni,comm | grep sleep
+# Shows PID, niceness, and command
+```
+
+3. **Signal Management:**
+```bash
+# kill - Send signals to processes
+kill -TERM 1234
+# TERM (15): Graceful termination
+kill -KILL 1234
+# KILL (9): Force termination
+kill -HUP 1234
+# HUP (1): Hangup, often reloads config
+
+# killall - Kill by process name
+killall sleep
+# Kills all processes named 'sleep'
+
+# Common signals:
+# 1 (HUP): Hangup
+# 2 (INT): Interrupt (Ctrl+C)
+# 9 (KILL): Force kill
+# 15 (TERM): Terminate gracefully
+# 18 (CONT): Continue
+# 19 (STOP): Stop
+```
+
+4. **Job Scheduling - at:**
+```bash
+# at - One-time job scheduling
+at now + 5 minutes
+at> echo "Hello" > /tmp/message
+at> <Ctrl+D>
+# Job queued for execution
+
+# View queued jobs
+atq
+# Shows job number, date, time, queue, user
+
+# Remove job
+atrm 1
+# Removes job number 1
+
+# Time specifications:
+# at 14:30
+# at now + 1 hour
+# at tomorrow
+# at next week
+```
+
+5. **Job Scheduling - cron:**
+```bash
+# crontab - Recurring job scheduling
+crontab -e
+# Opens editor for current user's crontab
+
+# Cron format: minute hour day month weekday command
+# Examples:
+# 0 2 * * * /usr/bin/backup.sh        # Daily at 2 AM
+# */15 * * * * /usr/bin/check_disk.sh # Every 15 minutes
+# 0 0 1 * * /usr/bin/monthly.sh       # Monthly on 1st
+# 0 9 * * 1-5 /usr/bin/workday.sh     # Weekdays at 9 AM
+
+# View crontab
+crontab -l
+# Lists current user's cron jobs
+
+# Remove crontab
+crontab -r
+# Removes all cron jobs for current user
+
+# System-wide cron
+ls /etc/cron.d/
+ls /etc/cron.daily/
+ls /etc/cron.hourly/
+ls /etc/cron.monthly/
+ls /etc/cron.weekly/
+```
+
+6. **Access Control:**
+```bash
+# at access control
+echo "john" >> /etc/at.allow
+# Only users in at.allow can use at
+echo "jane" >> /etc/at.deny
+# Users in at.deny cannot use at
+
+# cron access control
+echo "john" >> /etc/cron.allow
+echo "jane" >> /etc/cron.deny
+# Same logic as at access control
+```
+
+**Expected Results:**
+- Understanding of process states and priorities
+- Ability to monitor and control processes
+- Mastery of job scheduling with at and cron
+- Knowledge of access control mechanisms
+
+**Verification Commands:**
+```bash
+# Check running processes
+ps aux | head -10
+top -n 1
+
+# Verify cron jobs
+crontab -l
+sudo cat /var/log/cron
+
+# Check at jobs
+atq
+sudo cat /var/log/messages | grep atd
+```
+
+---
+
+## 📚 **Chapter 9: Basic Package Management - ANSWERS**
+
+### **Lab 9.1: RPM Package Management - SOLUTION**
+
+**RPM Query Commands:**
+
+1. **Package Information:**
+```bash
+# List all installed packages
+rpm -qa
+# -q: query, -a: all packages
+rpm -qa | grep ssh
+# Find SSH-related packages
+
+# Package information
+rpm -qi openssh-server
+# -i: information
+# Shows: Name, Version, Release, Architecture, Install Date, etc.
+
+# Package files
+rpm -ql openssh-server
+# -l: list files
+# Shows all files installed by package
+
+# Which package owns a file
+rpm -qf /usr/sbin/sshd
+# -f: file
+# Shows package that installed the file
+
+# Package documentation
+rpm -qd openssh-server
+# -d: documentation
+# Shows man pages and docs
+
+# Package configuration files
+rpm -qc openssh-server
+# -c: configuration files
+# Shows config files
+```
+
+2. **Package Installation:**
+```bash
+# Install package
+rpm -ivh package.rpm
+# -i: install, -v: verbose, -h: hash marks (progress)
+
+# Upgrade package
+rpm -Uvh package.rpm
+# -U: upgrade (installs if not present)
+
+# Freshen package
+rpm -Fvh package.rpm
+# -F: freshen (only if already installed)
+
+# Force installation
+rpm -ivh --force package.rpm
+# Overwrites existing files
+
+# Install without dependencies
+rpm -ivh --nodeps package.rpm
+# Ignores dependency checks (dangerous)
+```
+
+3. **Package Removal:**
+```bash
+# Remove package
+rpm -e package-name
+# -e: erase
+
+# Remove without dependencies
+rpm -e --nodeps package-name
+# Ignores dependency checks
+
+# Test removal (don't actually remove)
+rpm -e --test package-name
+# Shows what would be removed
+```
+
+4. **Package Verification:**
+```bash
+# Verify package integrity
+rpm -V openssh-server
+# -V: verify
+# No output = no problems
+# Output shows: S.5....T c /etc/ssh/sshd_config
+# S: size, 5: MD5 checksum, T: timestamp, c: config file
+
+# Verify all packages
+rpm -Va
+# Checks all installed packages
+
+# Import GPG keys
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+# Imports Red Hat's GPG key for verification
+
+# View GPG keys
+rpm -qa gpg-pubkey*
+# Shows imported GPG keys
+```
+
+5. **Package Extraction:**
+```bash
+# Extract files from RPM
+rpm2cpio package.rpm | cpio -idmv
+# rpm2cpio: converts RPM to cpio format
+# cpio -idmv: extract files
+# -i: extract, -d: create directories, -m: preserve timestamps, -v: verbose
+
+# Extract to specific directory
+mkdir /tmp/extract
+cd /tmp/extract
+rpm2cpio /path/to/package.rpm | cpio -idmv
+```
+
+**Expected Results:**
+- Understanding of RPM package format
+- Ability to query package information
+- Knowledge of installation and removal procedures
+- Understanding of package verification
+
+**Verification Commands:**
+```bash
+# Check package status
+rpm -qa | wc -l  # Count installed packages
+rpm -qi kernel   # Check kernel package info
+rpm -V kernel    # Verify kernel package
+```
+
+---
+
+## 📚 **Chapter 10: Advanced Package Management - ANSWERS**
+
+### **Lab 10.1: DNF Package Management - SOLUTION**
+
+**Repository Management:**
+
+1. **Repository Configuration:**
+```bash
+# List repositories
+dnf repolist
+# Shows enabled repositories
+dnf repolist --all
+# Shows all repositories (enabled and disabled)
+
+# Repository information
+dnf repoinfo
+# Detailed repository information
+
+# Add repository
+dnf config-manager --add-repo http://example.com/repo
+# Adds new repository
+
+# Enable/disable repository
+dnf config-manager --enable repo-name
+dnf config-manager --disable repo-name
+
+# Repository files location
+ls /etc/yum.repos.d/
+# Contains .repo files
+```
+
+2. **Package Management:**
+```bash
+# Install package
+dnf install httpd
+# Downloads and installs package with dependencies
+
+# Install specific version
+dnf install httpd-2.4.53
+# Installs specific version if available
+
+# Install from file
+dnf install /path/to/package.rpm
+# Installs local RPM file
+
+# Reinstall package
+dnf reinstall httpd
+# Reinstalls package (useful for corrupted files)
+
+# Downgrade package
+dnf downgrade httpd
+# Downgrades to previous version
+```
+
+3. **Package Updates:**
+```bash
+# Update all packages
+dnf update
+# Updates all installed packages
+
+# Update specific package
+dnf update httpd
+# Updates only httpd package
+
+# Check for updates
+dnf check-update
+# Lists available updates without installing
+
+# Security updates only
+dnf update --security
+# Installs only security updates
+```
+
+4. **Package Information:**
+```bash
+# Search packages
+dnf search web server
+# Searches package names and descriptions
+
+# Package information
+dnf info httpd
+# Shows detailed package information
+
+# List packages
+dnf list installed
+# Lists all installed packages
+dnf list available
+# Lists all available packages
+dnf list updates
+# Lists packages with available updates
+
+# Find package providing file
+dnf provides /usr/sbin/httpd
+# Shows which package provides the file
+
+# Package dependencies
+dnf deplist httpd
+# Shows package dependencies
+```
+
+5. **Package Removal:**
+```bash
+# Remove package
+dnf remove httpd
+# Removes package and unused dependencies
+
+# Remove with dependencies
+dnf remove httpd --dependencies
+# Forces removal of dependencies
+
+# Autoremove orphaned packages
+dnf autoremove
+# Removes packages no longer needed
+
+# Clean cache
+dnf clean all
+# Removes downloaded packages and metadata
+```
+
+6. **Package Groups:**
+```bash
+# List package groups
+dnf group list
+# Shows available package groups
+dnf group list --installed
+# Shows installed groups
+
+# Group information
+dnf group info "Development Tools"
+# Shows packages in group
+
+# Install group
+dnf group install "Development Tools"
+# Installs all packages in group
+
+# Remove group
+dnf group remove "Development Tools"
+# Removes group packages
+
+# Update group
+dnf group update "Development Tools"
+# Updates group packages
+```
+
+7. **History Management:**
+```bash
+# View history
+dnf history
+# Shows transaction history
+
+# History details
+dnf history info 5
+# Shows details of transaction 5
+
+# Undo transaction
+dnf history undo 5
+# Undoes transaction 5
+
+# Redo transaction
+dnf history redo 5
+# Redoes transaction 5
+```
+
+**Expected Results:**
+- Mastery of DNF package management
+- Understanding of repository configuration
+- Knowledge of package groups
+- Ability to manage package history
+
+**Verification Commands:**
+```bash
+# Check DNF configuration
+dnf config-manager --dump
+# Verify installed packages
+dnf list installed | head -10
+# Check repository status
+dnf repolist --enabled
+```
+
+---
+
+## 📚 **Chapter 11: Boot Process, GRUB2, and the Linux Kernel - ANSWERS**
+
+### **Lab 11.1: Boot Process and GRUB2 Management - SOLUTION**
+
+**GRUB2 Configuration:**
+
+1. **GRUB2 Management:**
+```bash
+# Check current GRUB environment
+grub2-editenv list
+# Shows saved_entry and other GRUB variables
+
+# Regenerate GRUB configuration
+grub2-mkconfig -o /boot/grub2/grub.cfg
+# Scans /etc/default/grub and /etc/grub.d/
+
+# Check default kernel
+grubby --default-kernel
+# Shows path to default kernel
+
+# List all kernel entries
+grubby --info=ALL
+# Shows all available kernel entries
+```
+
+2. **Boot Timeout Configuration:**
+```bash
+# Edit GRUB defaults
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=10/' /etc/default/grub
+# Changes timeout from 5 to 10 seconds
+
+# Apply changes
+grub2-mkconfig -o /boot/grub2/grub.cfg
+# Must regenerate config after changes
+
+# Verify changes
+grep GRUB_TIMEOUT /etc/default/grub
+# Should show GRUB_TIMEOUT=10
+```
+
+3. **Target Management:**
+```bash
+# Check current default target
+systemctl get-default
+# Shows current default target (e.g., graphical.target)
+
+# Set default target
+systemctl set-default multi-user.target
+# Changes default to text mode
+systemctl set-default graphical.target
+# Changes default to GUI mode
+
+# Switch to different target immediately
+systemctl isolate rescue.target
+# Switches to rescue mode
+systemctl isolate multi-user.target
+# Switches to multi-user mode
+```
+
+4. **Kernel Management:**
+```bash
+# Check current kernel
+uname -r
+# Shows running kernel version
+
+# List installed kernels
+rpm -qa kernel
+# Shows all installed kernel packages
+
+# Install new kernel
+dnf install kernel
+# Installs latest available kernel
+
+# Remove old kernel
+dnf remove kernel-old-version
+# Removes specific kernel version
+
+# Set kernel parameters
+grubby --update-kernel=ALL --args="quiet splash"
+# Adds parameters to all kernels
+```
+
+**Expected Results:**
+- Understanding of GRUB2 configuration
+- Ability to manage boot process
+- Knowledge of systemd targets
+- Kernel installation and management skills
+
+**Verification Commands:**
+```bash
+# Check GRUB configuration
+grep -E "(timeout|default)" /boot/grub2/grub.cfg
+# Verify target
+systemctl get-default
+# Check kernels
+ls /boot/vmlinuz-*
+```
+
+---
+
+## 📚 **Chapter 12: System Initialization, Message Logging, and System Tuning - ANSWERS**
+
+### **Lab 12.1: systemd and Logging Management - SOLUTION**
+
+**Service Management:**
+
+1. **systemd Service Control:**
+```bash
+# Service status
+systemctl status httpd
+# Shows: Active, Main PID, Memory usage, CGroup, Recent logs
+
+# Start service
+systemctl start httpd
+# Starts service immediately
+
+# Enable service (start at boot)
+systemctl enable httpd
+# Creates symlinks in /etc/systemd/system/
+
+# Enable and start together
+systemctl enable --now httpd
+# Enables and starts in one command
+
+# Stop service
+systemctl stop httpd
+# Stops service immediately
+
+# Disable service
+systemctl disable httpd
+# Removes boot-time startup
+
+# Mask service (prevent starting)
+systemctl mask httpd
+# Creates symlink to /dev/null
+
+# Unmask service
+systemctl unmask httpd
+# Removes mask
+```
+
+2. **Target Management:**
+```bash
+# List all targets
+systemctl list-units --type=target
+# Shows all available targets
+
+# Switch target immediately
+systemctl isolate multi-user.target
+# Changes to text mode
+
+# Set default target
+systemctl set-default graphical.target
+# Sets GUI as default
+
+# Check dependencies
+systemctl list-dependencies graphical.target
+# Shows what graphical.target requires
+```
+
+3. **Journal Management:**
+```bash
+# View service logs
+journalctl -u httpd
+# Shows logs for httpd service
+
+# Follow logs in real-time
+journalctl -f
+# Similar to tail -f
+
+# Filter by time
+journalctl --since "2023-01-01" --until "2023-01-02"
+# Shows logs for specific date range
+
+# Filter by priority
+journalctl -p err
+# Shows only error messages
+# Priorities: emerg, alert, crit, err, warning, notice, info, debug
+
+# Make journal persistent
+mkdir /var/log/journal
+systemctl restart systemd-journald
+# Journal will survive reboots
+
+# Check journal size
+journalctl --disk-usage
+# Shows space used by journal
+```
+
+4. **System Tuning:**
+```bash
+# List tuning profiles
+tuned-adm list
+# Shows available profiles
+
+# Check active profile
+tuned-adm active
+# Shows currently active profile
+
+# Apply profile
+tuned-adm profile throughput-performance
+# Optimizes for throughput
+
+# Get recommendation
+tuned-adm recommend
+# Suggests best profile for system
+
+# Verify profile
+tuned-adm verify
+# Checks if profile is properly applied
+```
+
+**Expected Results:**
+- Mastery of systemd service management
+- Understanding of systemd targets
+- Knowledge of journal configuration
+- Ability to apply system tuning
+
+**Verification Commands:**
+```bash
+# Check service status
+systemctl is-enabled httpd
+systemctl is-active httpd
+# Verify journal persistence
+ls -la /var/log/journal/
+# Check tuning
+tuned-adm active
+```
+
+---
+
+## 📚 **Chapter 13: Storage Management - ANSWERS**
+
+### **Lab 13.1: Disk Partitioning and LVM - SOLUTION**
+
+**Disk Information:**
+
+1. **Disk Discovery:**
+```bash
+# List block devices
+lsblk
+# Shows tree view of all block devices
+
+# Disk information
+fdisk -l
+# Shows partition tables for all disks
+
+# Detailed disk info
+parted -l
+# Shows partition information using parted
+
+# Disk usage
+df -h
+# Shows mounted filesystem usage
+```
+
+2. **MBR Partitioning:**
+```bash
+# Create MBR partition table
+parted /dev/sdb mklabel msdos
+# Creates MBR partition table
+
+# Create primary partition
+parted /dev/sdb mkpart primary 1MiB 1GiB
+# Creates 1GB primary partition
+
+# Set partition type
+parted /dev/sdb set 1 lvm on
+# Sets partition 1 as LVM type
+
+# Verify partition
+parted /dev/sdb print
+# Shows partition table
+```
+
+3. **GPT Partitioning:**
+```bash
+# Interactive GPT partitioning
+gdisk /dev/sdc
+# Commands in gdisk:
+# n: new partition
+# 1: partition number
+# <Enter>: default start sector
+# +1G: size (1GB)
+# 8e00: Linux LVM partition type
+# w: write changes
+# y: confirm
+
+# Verify GPT partition
+gdisk -l /dev/sdc
+# Shows GPT partition table
+```
+
+4. **LVM Setup:**
+```bash
+# Create physical volumes
+pvcreate /dev/sdb1 /dev/sdc1
+# Initializes partitions for LVM use
+
+# Verify PVs
+pvdisplay
+# Shows detailed PV information
+pvs
+# Shows summary of PVs
+
+# Create volume group
+vgcreate vg01 /dev/sdb1
+# Creates VG named vg01
+
+# Verify VG
+vgdisplay vg01
+# Shows detailed VG information
+vgs
+# Shows summary of VGs
+
+# Create logical volumes
+lvcreate -L 500M -n lv01 vg01
+# Creates 500MB LV named lv01
+lvcreate -l 100%FREE -n lv02 vg01
+# Uses all remaining space
+
+# Verify LVs
+lvdisplay
+# Shows detailed LV information
+lvs
+# Shows summary of LVs
+```
+
+5. **LVM Extension:**
+```bash
+# Extend volume group
+vgextend vg01 /dev/sdc1
+# Adds /dev/sdc1 to vg01
+
+# Extend logical volume
+lvextend -L +200M /dev/vg01/lv01
+# Adds 200MB to lv01
+lvextend -l +100%FREE /dev/vg01/lv02
+# Uses all available space
+
+# Verify extension
+vgs vg01
+lvs vg01
+```
+
+6. **VDO Setup:**
+```bash
+# Create VDO volume
+vdo create --name=vdo1 --device=/dev/sdd --vdoLogicalSize=10G
+# Creates VDO volume with 10GB logical size
+
+# Format VDO volume
+mkfs.xfs /dev/mapper/vdo1
+# Creates XFS filesystem on VDO
+
+# Check VDO status
+vdo status --name=vdo1
+# Shows VDO volume information
+
+# VDO statistics
+vdostats --human-readable
+# Shows compression and deduplication stats
+```
+
+**Expected Results:**
+- Understanding of MBR vs GPT partitioning
+- Mastery of LVM concepts and commands
+- Knowledge of VDO for storage optimization
+- Ability to extend storage dynamically
+
+**Verification Commands:**
+```bash
+# Check partitions
+lsblk
+parted -l
+# Verify LVM
+pvs && vgs && lvs
+# Check VDO
+vdo list
+```
+
+---
+
+## 📚 **Chapter 14: Local File Systems and Swap - ANSWERS**
+
+### **Lab 14.1: File System Management - SOLUTION**
+
+**File System Creation:**
+
+1. **Create File Systems:**
+```bash
+# Create ext4 filesystem
+mkfs.ext4 /dev/vg01/lv01
+# Creates ext4 with default options
+
+# Create XFS filesystem
+mkfs.xfs /dev/vg01/lv02
+# Creates XFS filesystem
+
+# Create VFAT filesystem
+mkfs.vfat /dev/sdb2
+# Creates FAT32 filesystem
+
+# Verify filesystem types
+blkid
+# Shows UUID and filesystem type for all devices
+```
+
+2. **Mount File Systems:**
+```bash
+# Create mount points
+mkdir /mnt/ext4 /mnt/xfs /mnt/vfat
+
+# Mount filesystems
+mount /dev/vg01/lv01 /mnt/ext4
+mount /dev/vg01/lv02 /mnt/xfs
+mount /dev/sdb2 /mnt/vfat
+
+# Verify mounts
+df -h
+mount | grep -E "(ext4|xfs|vfat)"
+```
+
+3. **Persistent Mounting:**
+```bash
+# Get UUIDs
+blkid /dev/vg01/lv01
+# Copy UUID for fstab entry
+
+# Add to fstab
+echo "UUID=xxx /mnt/ext4 ext4 defaults 0 2" >> /etc/fstab
+echo "UUID=yyy /mnt/xfs xfs defaults 0 2" >> /etc/fstab
+echo "UUID=zzz /mnt/vfat vfat defaults 0 2" >> /etc/fstab
+
+# Test fstab
+mount -a
+# Mounts all filesystems in fstab
+
+# Verify persistent mounts
+df -h
+```
+
+4. **File System Resizing:**
+```bash
+# Resize ext4 (after extending LV)
+resize2fs /dev/vg01/lv01
+# Expands ext4 to fill available space
+
+# Resize XFS (must be mounted)
+xfs_growfs /mnt/xfs
+# Expands XFS to fill available space
+
+# Check filesystem sizes
+df -h /mnt/ext4 /mnt/xfs
+```
+
+5. **Swap Management:**
+```bash
+# Create swap partition
+mkswap /dev/sdb3
+# Formats partition as swap
+
+# Enable swap
+swapon /dev/sdb3
+# Activates swap immediately
+
+# Add to fstab for persistence
+echo "/dev/sdb3 swap swap defaults 0 0" >> /etc/fstab
+
+# Enable all swap in fstab
+swapon -a
+
+# Check swap usage
+free -h
+swapon --show
+```
+
+6. **Usage Monitoring:**
+```bash
+# Disk usage by filesystem
+df -h
+# Shows used/available space
+
+# Directory usage
+du -sh /var/log
+# Shows space used by directory
+
+# Find large files
+find /var -size +100M -type f
+# Finds files larger than 100MB
+
+# Inode usage
+df -i
+# Shows inode usage
+```
+
+**Expected Results:**
+- Understanding of different filesystem types
+- Knowledge of mounting and fstab configuration
+- Ability to resize filesystems
+- Mastery of swap configuration
+
+**Verification Commands:**
+```bash
+# Check filesystems
+df -hT
+# Verify fstab
+mount -a && df -h
+# Check swap
+free -h && swapon --show
+```
+
+I'll continue with the remaining chapters (15-22) to complete your comprehensive AG answer key. The file is getting quite large, so I'll add the rest in the next update.
