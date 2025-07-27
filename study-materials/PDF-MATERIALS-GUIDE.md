@@ -1,31 +1,42 @@
 # 📖 PDF-Based Materials Guide
-*Which files are based on your Red Hat RHCSA 9 Cert Guide PDF*
+*Which files are based on your RHCSA 9 PDFs*
 
-## 🎯 **Materials Created FROM YOUR PDF**
+## 🎯 **Materials Created FROM YOUR PDFs**
 
 ### 🌟 **PRIMARY PDF-BASED MATERIALS**
 
-#### **1. [labs/red-hat-cert-guide-labs-PDF.md](./labs/red-hat-cert-guide-labs-PDF.md)** ⭐ **MAIN PDF LABS**
-- **Source:** Your Red Hat RHCSA 9 Cert Guide PDF (preview-9780138096151_A46998912.pdf)
-- **Content:** All 28 chapters from your PDF
-- **Structure:** Follows exact chapter organization from the book
-- **Page References:** Includes specific page numbers from your PDF
-- **Lab Exercises:** Based on Labs 1.1, 2.1, 3.1, etc. mentioned in your PDF
+#### **PDF #1: Red Hat Official Cert Guide**
 
-**Chapter Coverage from Your PDF:**
+#### **1. [labs/AG-red-hat-cert-guide-labs-PDF.md](./labs/AG-red-hat-cert-guide-labs-PDF.md)** ⭐ **MAIN PDF LABS**
+- **Source:** RHCSA 9 Training and Exam Preparation Guide (EX200) Third Edition by Asghar Ghori (AG) - 1546 pages with 22 chapters covering all RHCSA exam objectives
+- **Content:** Comprehensive coverage with exercises, DIY labs, and 4 sample exams in appendices
+- **Structure:** Chapters cover: Lab setup, Essential tools, File management, Permissions, Users/Groups, Bash shell, Processes, Package management, Boot process, System initialization, Storage management, File systems, Networking, Remote file systems, Time services, SSH, Firewall, SELinux, Shell scripting, and Containers
+- **Page References:** Includes specific page numbers from your AG PDF
+
+**Chapter Coverage from Your AG PDF:**
 ```
-✅ Chapter 1: Installing Red Hat Enterprise Linux (Page 24)
-✅ Chapter 2: Using Essential Tools (Page 51)
-✅ Chapter 3: Essential File Management Tools (Page 77)
-✅ Chapter 4: Working with Text Files (Page 98)
-✅ Chapter 5: Connecting to Red Hat Enterprise Linux 9 (Page 119)
-✅ Chapter 6: User and Group Management (Page 141-142)
-✅ Chapter 7: Permissions Management (Page 164)
-✅ Chapter 8: Configuring Networking (Page 193)
-✅ Chapter 9: Managing Software (Page 228)
-✅ Chapter 10: Managing Processes (Page 231+)
-✅ Chapter 11: Working with systemd
-✅ Chapter 12: Scheduling Tasks
+✅ Chapter 1: Lab setup (Page 1)
+✅ Chapter 2: Essential tools (Page 51)
+✅ Chapter 3: File management (Page 77)
+✅ Chapter 4: Permissions (Page 98)
+✅ Chapter 5: Users/Groups (Page 119)
+✅ Chapter 6: Bash shell (Page 141-142)
+✅ Chapter 7: Processes (Page 164)
+✅ Chapter 8: Package management (Page 193)
+✅ Chapter 9: Boot process (Page 228)
+✅ Chapter 10: System initialization (Page 231+)
+✅ Chapter 11: Storage management (Page 264)
+✅ Chapter 12: File systems (Page 297)
+✅ Chapter 13: Networking (Page 330)
+✅ Chapter 14: Remote file systems (Page 363)
+✅ Chapter 15: Time services (Page 396)
+✅ Chapter 16: SSH (Page 429)
+✅ Chapter 17: Firewall (Page 462)
+✅ Chapter 18: SELinux (Page 495)
+✅ Chapter 19: Shell scripting (Page 528)
+✅ Chapter 20: Containers (Page 561)
+✅ Chapter 21: Sample Exam 1 (Page 594)
+✅ Chapter 22: Sample Exam 2 (Page 627)
 ✅ Chapter 13: Configuring Logging
 ✅ Chapter 14-15: Storage Management
 ✅ Chapter 16: Basic Kernel Management
