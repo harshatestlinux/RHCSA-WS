@@ -1,33 +1,31 @@
 # ✅ RHCSA Lab Answers & Solutions
 
-## Answer Files in Order of Importance:
+## 📖 Answers Directory
 
-### 🌟 **PRIMARY ANSWERS (Start Here)**
-**[Lab Answers & Solutions PDF](./lab-answers-and-solutions-PDF.md)**
-- Complete solutions for Red Hat Cert Guide Labs PDF
-- Detailed command explanations
-- Expected outputs and verification steps
-- Troubleshooting guides
-- **Use this as your main answer reference**
+This directory contains detailed solutions for all RHCSA practice labs.
 
-### 📚 **SUPPLEMENTARY ANSWERS**
-**[Practice Labs Answers](./practice-labs-answers.md)**
-- Solutions for original practice labs
-- Basic explanations
-- Foundation level answers
+## 🎯 **Available Answer Sets** (PDF-Based Only)
 
-### 🎯 **ADVANCED ANSWERS**
-**[Practice Labs Set 2 Answers](./practice-labs-set2-answers.md)**
-- Solutions for advanced scenarios
-- Complex troubleshooting
-- Challenge exercise answers
+### **Primary Study Materials** ⭐
+- **[red-hat-cert-guide-answers-PDF.md](./red-hat-cert-guide-answers-PDF.md)** - Solutions for Red Hat official guide labs (28 chapters)
+- **[AG-rhcsa9-answers-PDF.md](./AG-rhcsa9-answers-PDF.md)** - Solutions for Asghar Ghori comprehensive guide labs (22 chapters + 4 sample exams)
+- **[lab-answers-and-solutions-PDF.md](./lab-answers-and-solutions-PDF.md)** - Additional PDF-based solutions
 
----
+## 📋 **Usage Instructions**
 
-## 💡 **How to Use Answers:**
-1. **Try the lab first** - Don't look at answers immediately
-2. **Check your work** - Compare your results with expected outputs
-3. **Learn from explanations** - Understand why each command works
-4. **Practice troubleshooting** - Use guides when things go wrong
+1. **Complete labs first** before checking answers
+2. **Use answers for verification** and learning
+3. **Study command explanations** to understand concepts
+4. **Practice troubleshooting** with provided guidance
+
+## 🎯 **Answer Format**
+- **Step-by-step command explanations**
+- **Expected output examples**
+- **Verification commands**
+- **Troubleshooting tips**
+- **Real-world scenarios**
+
+## 🚀 **Streamlined Focus**
+Non-PDF answer materials removed to maintain focus on high-quality, comprehensive PDF-based solutions for optimal exam preparation.
 
 **[← Back to Main Guide](../README.md)**

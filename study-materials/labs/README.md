@@ -1,31 +1,16 @@
 # 📖 RHCSA Practice Labs
 
-## Lab Files in Order of Importance:
+## 📚 Labs Directory
 
-### 🌟 **PRIMARY LAB (Start Here)**
-**[Red Hat Cert Guide Labs PDF](./red-hat-cert-guide-labs-PDF.md)**
-- Based on official Red Hat RHCSA 9 Cert Guide PDF
-- All 28 chapters covered
-- Real exam scenarios
-- **Use this as your main study material**
+This directory contains hands-on practice labs for RHCSA preparation.
 
-### 📚 **SUPPLEMENTARY LABS**
-**[Comprehensive Practice Labs](./comprehensive-practice-labs.md)**
-- Additional practice scenarios
-- Week-by-week structure
-- Extra hands-on exercises
+## 🎯 **Available Lab Sets** (PDF-Based Only)
 
-### 🔰 **FOUNDATION LABS**
-**[Practice Labs (Original)](./practice-labs.md)**
-- Basic practice exercises
-- Foundational skills
-- Good for beginners
+### **Primary Study Materials** ⭐
+- **[red-hat-cert-guide-labs-PDF.md](./red-hat-cert-guide-labs-PDF.md)** - Labs from Red Hat official guide (28 chapters)
+- **[AG-rhcsa9-labs-PDF.md](./AG-rhcsa9-labs-PDF.md)** - Labs from Asghar Ghori comprehensive guide (22 chapters + 4 sample exams)
 
-### 🎯 **ADVANCED LABS**
-**[Practice Labs Set 2](./practice-labs-set2.md)**
-- Advanced scenarios
-- Complex configurations
-- Challenge exercises
+## 📋 **Usage Instructions**
 
 ---
 
