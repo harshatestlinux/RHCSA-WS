@@ -1,0 +1,44 @@
+ Mac Terminal Shortcuts (for Bash/Zsh)
+📍 Navigation
+Ctrl A – Move to the beginning of the line
+
+Ctrl E – Move to the end of the line
+
+Option → / ← – Move forward/backward one word
+
+Ctrl U – Delete from cursor to beginning of line
+
+Ctrl K – Delete from cursor to end of line
+
+Ctrl W – Delete the word before the cursor
+
+📄 Command History & Reuse
+Ctrl R – Reverse search through command history
+
+!! – Repeat the last command
+
+!sudo !! – Run previous command with sudo
+
+Esc . or Option . – Insert the last argument from the previous command
+
+Up / Down Arrows – Scroll through history
+
+🛠️ Command Control
+Ctrl C – Kill the running command
+
+Ctrl Z – Suspend the current job (resume with fg)
+
+Ctrl D – Logout / send EOF (e.g., end cat)
+
+Ctrl L – Clear the terminal screen
+
+🧾 Clipboard and Text Tricks (Mac Specific)
+Cmd C / Cmd V – Copy/paste in Terminal (if not overridden by app settings)
+
+Cmd K – Clear the entire terminal scrollback (macOS Terminal only)
+
+Cmd T – Open new tab
+
+Cmd N – Open new window
+
+Cmd Arrow Keys – Navigate lines, tabs, etc. (depending on your shell or Terminal emulator)
